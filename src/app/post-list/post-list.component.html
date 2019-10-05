@@ -1,7 +1,7 @@
 <div class='container-fluid'>
     <div class='row'>
         <div class='col-xs-12'>
-            <button class='btn btn-primary btn-sm'>New post</button>
+            <button class='btn btn-primary btn-sm' (click)='onNew()'>New post</button>
         </div>
     </div>
     <div class='row'>
@@ -31,3 +31,43 @@
         </div>
     </div>    
 </div>
+<clr-modal [(clrModalOpen)]="deleteModalOpen">
+    <h3 class="modal-title">Post deletion</h3>
+    <div class="modal-body">
+        <p>Are you sure you want to delete this post?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="cancelPostDeletion()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="doPostDeletion()">Ok</button>
+    </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="showModalOpen">
+    <h3 class="modal-title">Show post</h3>
+    <div class="modal-body">
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="hideShowPostModal()">Ok</button>
+    </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="editModalOpen">
+    <h3 class="modal-title">Post edition</h3>
+    <div class="modal-body">
+       
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="cancelPostEdition()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="doPostEdition()">Ok</button>
+    </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="newModalOpen">
+    <h3 class="modal-title">New post</h3>
+    <div class="modal-body">
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="cancelPostCreation()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="doPostCreation()">Ok</button>
+    </div>
+</clr-modal>
