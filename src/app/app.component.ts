@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'wefox-challenge';
+export class AppComponent implements OnInit{
+  title = 'Wefox - Carles Rius Challenge';
+  ngOnInit() {
+  }
 }

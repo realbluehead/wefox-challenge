@@ -1,0 +1,33 @@
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-xs-12'>
+            <button class='btn btn-primary btn-sm'>New post</button>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-xs-12'>
+            <clr-datagrid>
+                    <clr-dg-column>Created</clr-dg-column>
+                    <clr-dg-column>Title</clr-dg-column>
+                    <clr-dg-column>Content</clr-dg-column>
+                    <clr-dg-column>Latitude</clr-dg-column>
+                    <clr-dg-column>Longitude</clr-dg-column>
+                    <clr-dg-column>Actions</clr-dg-column>
+                
+                    <clr-dg-row *ngFor="let post of posts">
+                        <clr-dg-cell>{{post.created_at | date}}</clr-dg-cell>
+                        <clr-dg-cell>{{post.title}}</clr-dg-cell>
+                        <clr-dg-cell>{{post.content}}</clr-dg-cell>
+                        <clr-dg-cell>{{post.lat}}</clr-dg-cell>
+                        <clr-dg-cell>{{post.long}}</clr-dg-cell>
+                        <clr-dg-cell>
+                            <clr-icon shape="pencil" (click)="onEdit(post)" class='action_icon' title='Edit post'></clr-icon>
+                            <clr-icon shape="trash" (click)="onDelete(post)" class='action_icon' title='Delete post'></clr-icon>
+                        </clr-dg-cell>
+                    </clr-dg-row>
+                
+                    <clr-dg-footer>{{posts.length}} posts</clr-dg-footer>
+                </clr-datagrid>
+        </div>
+    </div>    
+</div>
