@@ -16,7 +16,7 @@
                 
                     <clr-dg-row *ngFor="let post of posts">
                         <clr-dg-cell>{{post.created_at | date}}</clr-dg-cell>
-                        <clr-dg-cell>{{post.title}}</clr-dg-cell>
+                        <clr-dg-cell (click)="onShow(post)" >{{post.title}}</clr-dg-cell>
                         <clr-dg-cell>{{post.content}}</clr-dg-cell>
                         <clr-dg-cell>{{post.lat}}</clr-dg-cell>
                         <clr-dg-cell>{{post.long}}</clr-dg-cell>
@@ -42,16 +42,17 @@
     </div>
 </clr-modal>
 
-<clr-modal [(clrModalOpen)]="showModalOpen">
+<clr-modal [(clrModalOpen)]="showModalOpen" [clrModalSize]="'xl'">
     <h3 class="modal-title">Show post</h3>
     <div class="modal-body">
-        
+        <app-post mode='show' [post]='currentPost'>
+        </app-post>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="hideShowPostModal()">Ok</button>
     </div>
 </clr-modal>
-<clr-modal [(clrModalOpen)]="editModalOpen">
+<clr-modal [(clrModalOpen)]="editModalOpen" [clrModalSize]="'xl'">
     <h3 class="modal-title">Post edition</h3>
     <div class="modal-body">
        
@@ -61,7 +62,7 @@
         <button type="button" class="btn btn-primary" (click)="doPostEdition()">Ok</button>
     </div>
 </clr-modal>
-<clr-modal [(clrModalOpen)]="newModalOpen">
+<clr-modal [(clrModalOpen)]="newModalOpen" [clrModalSize]="'xl'">
     <h3 class="modal-title">New post</h3>
     <div class="modal-body">
         

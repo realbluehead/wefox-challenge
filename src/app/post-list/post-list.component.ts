@@ -41,6 +41,10 @@ export class PostListComponent implements OnInit {
     });*/
   }
 
+  onShow(post: PostDTO) {
+    this.currentPost = post;
+    this.showModalOpen = true;
+  }
   hideShowPostModal() {
     this.showModalOpen = false;
   }
