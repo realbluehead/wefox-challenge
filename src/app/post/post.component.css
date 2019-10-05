@@ -1,0 +1,17 @@
+input, textarea {
+    width: 100%;
+    border: 1px solid rgb(246, 205, 128);
+}
+
+.form_label {
+    text-align: right;
+}
+.form_value {
+    text-align: left;
+}
+.table td {
+    border-top: none;
+}
+.table {
+    border: none;
+}

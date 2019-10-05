@@ -13,6 +13,7 @@ export class PostListComponent implements OnInit {
   showModalOpen = false;
   editModalOpen = false;
   newModalOpen = false;
+  newPostValid = false;
   currentPost = null;
   constructor(private postService: PostService) { }
 
@@ -36,9 +37,9 @@ export class PostListComponent implements OnInit {
 
   doPostDeletion() {
     this.deleteModalOpen = false;
-    /*this.postService.remove(this.currentPost).subscribe((data: any) =>{
+    this.postService.remove(this.currentPost).subscribe((data: any) =>{
       this.retrievePosts();
-    });*/
+    });
   }
 
   onShow(post: PostDTO) {
@@ -73,8 +74,16 @@ export class PostListComponent implements OnInit {
 
   doPostCreation() {
     this.newModalOpen = false;
-    /* this.postService.create(this.currentPost).subscribe((data:any) => {
+    this.postService.create(this.currentPost).subscribe(() => {
       this.retrievePosts();
-    });*/
+    });
+  }
+
+  newPostIsValid(e) {
+    this.newPostValid = e;
+  }
+  postUpdated(e) {
+    // we have recieved a DTO from a form (new, edit)
+    this.currentPost = e;
   }
 }

@@ -65,10 +65,11 @@
 <clr-modal [(clrModalOpen)]="newModalOpen" [clrModalSize]="'xl'">
     <h3 class="modal-title">New post</h3>
     <div class="modal-body">
-        
+            <app-post mode='new' (valid)='newPostIsValid($event)' (postUpdated)='postUpdated($event)'>
+                </app-post>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="cancelPostCreation()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="doPostCreation()">Ok</button>
+        <button type="button" class="btn btn-primary" (click)="doPostCreation()" [disabled]='!newPostValid'>Ok</button>
     </div>
 </clr-modal>

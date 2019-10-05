@@ -8,14 +8,33 @@
     <div *ngIf='post.image_url' class='clr-col-sm-12'><img [src] = 'post.image_url'/></div>
 </div>
 
-<div class='clr-row' *ngIf="mode==='new' && post">
-    <div class='col-xs-12'><b>Created:</b> {{post.creation_date | date}}</div>
-    <div class='col-xs-12'><b>Title:</b> {{post.title}}</div>
-    <div class='col-xs-12'><b>Content:</b><br> {{post.content}}</div>
-    <div class='col-xs-12'><b>Latitude:</b> {{post.lat}}</div>
-    <div class='col-xs-12'><b>Longitude:</b> {{post.long}}</div>
-    <div class='col-xs-12'><b>Image:</b> {{post.image_url}}</div>
-</div>
+<form [formGroup]="postForm" *ngIf="mode==='new'">
+    <div class='content-container'>
+            <div class='clr-col-12'>
+                <table class='table table-responsive'>
+                    <tr>
+                        <td class='form_label'>Title *</td>
+                        <td colspan='3'><input type='text' name='title' formControlName='title'></td>
+                    </tr>
+                    <tr>
+                        <td class='form_label'>Content *</td>
+                        <td colspan='3'><textarea name='content' rows='7' formControlName='content'></textarea>
+                    </tr>
+                    <tr>
+                        <td class='form_label'>Latitude</td>
+                        <td class='form_value'><input type='text' name='lat' formControlName='lat' [ngStyle]="{'width':'200px'}"></td>
+                        <td class='form_label'>Longitude</td>
+                        <td class='form_value'><input type='text' name='long' formControlName='long' [ngStyle]="{'width':'200px'}"></td>
+                    </tr>
+                    <tr>
+                        <td class='form_label'>Image URI</td>
+                        <td colspan='3'><input type='text' name='image_url' formControlName='image_url'></td>
+                    </tr>
+                </table>
+            </div>
+        
+    </div>
+</form>
 
 <div class='clr-row' *ngIf="mode==='edit' && post">
     <div class='col-xs-12'><b>Created:</b> {{post.creation_date | date}}</div>
