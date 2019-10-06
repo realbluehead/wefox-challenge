@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, EventEmitter, Output, SimpleChanges, OnChanges } from '@angular/core';
 import PostDTO from '../models/PostDTO';
 import { FormBuilder, Form, FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -8,7 +8,7 @@ import { FormBuilder, Form, FormGroup, FormControl, Validators } from '@angular/
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-export class PostComponent implements OnInit, OnDestroy {
+export class PostComponent implements OnInit, OnDestroy, OnChanges {
   @Input() mode: string;
   @Input() post: PostDTO;
   @Output() valid = new EventEmitter<boolean>();
@@ -22,7 +22,7 @@ export class PostComponent implements OnInit, OnDestroy {
       id: '',
       title: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       content: new FormControl('', [Validators.required, Validators.maxLength(10000)]),
-      lat: new FormControl('',),
+      lat: new FormControl(''),
       long: new FormControl(''),
       image_url: new FormControl('')
     });
@@ -33,7 +33,7 @@ export class PostComponent implements OnInit, OnDestroy {
       // When the form changes state, we fire two events, one with the valid status, and another with the current DTO
       this.valid.emit(data === 'VALID');
       const post = {
-                    id: null,
+                    id: this.postForm.get('id').value,
                     title: this.postForm.get('title').value,
                     content: this.postForm.get('content').value,
                     lat: this.postForm.get('lat').value,
@@ -42,6 +42,17 @@ export class PostComponent implements OnInit, OnDestroy {
                   };
       this.postUpdated.emit(post);
     });
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.post) {
+      const post = changes.post.currentValue;
+      this.postForm.get('id').setValue(post.id);
+      this.postForm.get('title').setValue(post.title);
+      this.postForm.get('content').setValue(post.content);
+      this.postForm.get('lat').setValue(post.lat);
+      this.postForm.get('long').setValue(post.long);
+      this.postForm.get('image_url').setValue(post.image_url);
+    }
   }
 
   ngOnDestroy() {

@@ -8,7 +8,7 @@
     <div *ngIf='post.image_url' class='clr-col-sm-12'><img [src] = 'post.image_url'/></div>
 </div>
 
-<form [formGroup]="postForm" *ngIf="mode==='new'">
+<form [formGroup]="postForm" *ngIf="mode==='new' || mode ==='edit'">
     <div class='content-container'>
             <div class='clr-col-12'>
                 <table class='table table-responsive'>
