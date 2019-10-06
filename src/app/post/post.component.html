@@ -37,7 +37,7 @@
 </form>
 
 <div class='clr-row' *ngIf="mode==='edit' && post">
-    <div class='col-xs-12'><b>Created:</b> {{post.creation_date | date}}</div>
+    <div class='col-xs-12'><b>Created:</b> {{post.created_at | date}}</div>
     <div class='col-xs-12'><b>Title:</b> {{post.title}}</div>
     <div class='col-xs-12'><b>Content:</b><br> {{post.content}}</div>
     <div class='col-xs-12'><b>Latitude:</b> {{post.lat}}</div>
