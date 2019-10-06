@@ -44,7 +44,7 @@ export class PostComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.post) {
+    if (changes.post && changes.post.currentValue && changes.post.currentValue.id) {
       const post = changes.post.currentValue;
       this.postForm.get('id').setValue(post.id);
       this.postForm.get('title').setValue(post.title);

@@ -2,3 +2,26 @@
     cursor: pointer;
     margin-left:10px;
 }
+
+.datagrid-row:hover {
+    background-color: rgb(246, 229, 180);
+    cursor:pointer;
+}
+.btn-primary .btn, .btn.btn-primary {
+    border-color:#f8b138;
+    background-color: #f8b138;
+    color: white;
+}
+
+.btn-info-outline .btn:active, .btn-outline .btn:active, .btn.btn-info-outline:active, .btn.btn-outline .btn:active, .btn.btn-outline-info:active, .btn.btn-outline:active {
+    box-shadow: 0 2px 0 0 f8b138 inset;
+    color: #f8b138;
+}
+.btn-info-outline .btn, .btn-outline .btn, .btn.btn-info-outline, .btn.btn-outline, .btn.btn-outline .btn, .btn.btn-outline-info {
+    border-color:#f8b138;
+    color: #f8b138 !important;
+}
+
+.btn-info-outline .btn:hover, .btn-outline .btn:hover, .btn.btn-info-outline:hover, .btn.btn-outline .btn:hover, .btn.btn-outline-info:hover, .btn.btn-outline:hover {
+    color:#f8b138 !important;
+}

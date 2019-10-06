@@ -1,14 +1,30 @@
 
-<div class='clr-row' *ngIf="mode==='show' && post">
-    <div class='clr-col-sm-12'><b>Created:</b> {{post.created_at | date}}</div>
-    <div class='clr-col-sm-12'><b>Title:</b> {{post.title}}</div>
-    <div class='clr-col-sm-12'><b>Content:</b><br> {{post.content}}</div>
-    <div class='clr-col-sm-12'><b>Latitude:</b> {{post.lat}}</div>
-    <div class='clr-col-sm-12'><b>Longitude:</b> {{post.long}}</div>
-    <div *ngIf='post.image_url' class='clr-col-sm-12'><img [src] = 'post.image_url'/></div>
+<div class='content-container' *ngIf="mode==='show' && post">
+        <div class='clr-col-12'>
+        <table class='table table-responsive'>
+                <tr>
+                    <td class='form_label'><b>Title</b> </td>
+                    <td colspan='3' class='form_value'>{{post.title}}</td>
+                </tr>
+                <tr>
+                    <td class='form_label'><b>Content</b> </td>
+                    <td colspan='3' class='form_value'>{{post.content}}</td>
+                </tr>
+                <tr>
+                    <td class='form_label'><b>Latitude</b></td>
+                    <td class='form_value'>{{post.lat}}</td>
+                    <td class='form_label'><b>Longitude</b></td>
+                    <td class='form_value'>{{post.long}}</td>
+                </tr>
+                <tr *ngIf='post.image_url'>
+                    <td colspan='4'><img [src] = 'post.image_url'/></td>
+                </tr>
+            </table>
+        </div>
+  
 </div>
 
-<form [formGroup]="postForm" *ngIf="mode==='new' || mode ==='edit'">
+<form [formGroup]="postForm" *ngIf="mode==='new' || (mode ==='edit' && post)">
     <div class='content-container'>
             <div class='clr-col-12'>
                 <table class='table table-responsive'>
@@ -35,12 +51,3 @@
         
     </div>
 </form>
-
-<div class='clr-row' *ngIf="mode==='edit' && post">
-    <div class='col-xs-12'><b>Created:</b> {{post.created_at | date}}</div>
-    <div class='col-xs-12'><b>Title:</b> {{post.title}}</div>
-    <div class='col-xs-12'><b>Content:</b><br> {{post.content}}</div>
-    <div class='col-xs-12'><b>Latitude:</b> {{post.lat}}</div>
-    <div class='col-xs-12'><b>Longitude:</b> {{post.long}}</div>
-    <div class='col-xs-12'><b>Image:</b> {{post.image_url}}</div>
-</div>
