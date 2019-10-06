@@ -1,4 +1,7 @@
 <div class="main-container">
+  <div class="alert alert-app-level alert-danger" *ngIf="alertMessage!==''">
+     <h4>{{alertMessage}}</h4>
+  </div>
   <header class="header header-6">
       <div class="branding">
         <a class="logo-and-title" routerlink="/" href="/">
