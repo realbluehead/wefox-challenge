@@ -2,7 +2,8 @@
 
 This project is part of the Wefox Challenge.
 
-#Features
+# Features
+
 * The project is code with Typescript/Angular as required
 * PostDTO is the DTO interface used everywhere in the project to refer to a Post.
 * PostService is an injectuable service that makes all the crud operations with the API via the bundled HttpClient
@@ -12,11 +13,13 @@ This project is part of the Wefox Challenge.
 * The create / edit form is a reactive form and I applied only the required validations for title and content and also applied some max-length restrictions. The Lat / Long fields could have their own validator if required but I decidec to focus on the main purpose of the project with the time I had.
 * The css framework chosen is VMWare Clarity that is very stable and to be honest I'm a bit tired of Bootstrap / PrimeNg and Material so I decidec to choose something different and make some theming with the Wefox palette.
 * To serve the application in Heroku there's a little server.js run by NodeJs that serves the static files (the build folder) (it's like a little nginx)
-* If I had more time I would have added more features:
-** An HttpInterceptor to handle the errors / loading state
-** I18n
-** Lat/Long custom validators
-** Maybe I would have internal routes to acces the different crud operations without having to go through the PostList Component
+
+# Roadmap / WishList
+If I had more time I would have added more features:
+* An HttpInterceptor to handle the errors / loading state
+* I18n
+* Lat/Long custom validators
+* Maybe I would have internal routes to acces the different crud operations without having to go through the PostList Component
 
 
 ## Development server
